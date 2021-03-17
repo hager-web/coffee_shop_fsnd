@@ -2,7 +2,6 @@ import json
 from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
-# import jwt
 from urllib.request import urlopen
 
 
@@ -151,8 +150,7 @@ def verify_decode_jwt(token):
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
-                'description':
-                    'Incorrect claims. Please, check the audience and issuer.'
+                'description': 'Incorrect claims. Please, check the audience and issuer.'
             }, 401)
         except Exception:
             raise AuthError({
